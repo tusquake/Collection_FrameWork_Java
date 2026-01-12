@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Advanced/Advanced.iml" filepath="$PROJECT_DIR$/Advanced/Advanced.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Advanced/Advanced/Advanced2.iml" filepath="$PROJECT_DIR$/Advanced/Advanced/Advanced2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Collection_FrameWork_Java.iml" filepath="$PROJECT_DIR$/Collection_FrameWork_Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Concurrent Collections/Concurrent Collections.iml" filepath="$PROJECT_DIR$/Concurrent Collections/Concurrent Collections.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Advanced/Levelup/Levelup.iml" filepath="$PROJECT_DIR$/Advanced/Levelup/Levelup.iml" />
+    </modules>
+  </component>
+</project>
