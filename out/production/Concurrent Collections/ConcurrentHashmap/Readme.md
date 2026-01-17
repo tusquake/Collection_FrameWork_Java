@@ -2,18 +2,18 @@
 
 A practical demonstration of thread-safe concurrent operations using Java's `ConcurrentHashMap`.
 
-## 📋 Overview
+## Overview
 
 This example simulates a real-world scenario where multiple threads concurrently update a user's login count. It showcases how `ConcurrentHashMap` handles race conditions without explicit synchronization.
 
-## 🎯 What This Example Demonstrates
+## What This Example Demonstrates
 
 - Thread-safe map operations in a multi-threaded environment
 - Using the `merge()` method for atomic updates
 - Proper thread management with `start()` and `join()`
 - Avoiding race conditions without manual locking
 
-## 🔧 How It Works
+## How It Works
 
 ### The Setup
 
@@ -53,7 +53,7 @@ t2.join();   // Waits for thread 2 to complete
 t3.join();   // Waits for thread 3 to complete
 ```
 
-## 🔑 Key Method: merge()
+## Key Method: merge()
 
 The `merge()` method is crucial for thread-safe updates:
 
@@ -71,7 +71,7 @@ loginCountMap.merge("tushar", 1, Integer::sum);
 2. If the key exists, it applies the function: `oldValue + newValue`
 3. The entire operation is **atomic** (thread-safe)
 
-## 📊 Expected Output
+## Expected Output
 
 ```
 Final login count: 3000
@@ -79,7 +79,7 @@ Final login count: 3000
 
 Since each of the 3 threads increments the counter 1000 times, the final count is always **3000** — guaranteed by `ConcurrentHashMap`'s thread-safety.
 
-## 💡 Why ConcurrentHashMap?
+## Why ConcurrentHashMap?
 
 ### Without ConcurrentHashMap (using HashMap)
 If you used a regular `HashMap`, you would face:
@@ -88,12 +88,12 @@ If you used a regular `HashMap`, you would face:
 - **Inconsistent results**: Final count could be less than 3000
 
 ### With ConcurrentHashMap
-- ✅ Thread-safe operations
-- ✅ No explicit synchronization needed
-- ✅ Better performance than `Hashtable` or `Collections.synchronizedMap()`
-- ✅ Consistent and correct results
+- Thread-safe operations
+- No explicit synchronization needed
+- Better performance than `Hashtable` or `Collections.synchronizedMap()`
+- Consistent and correct results
 
-## 🏗️ ConcurrentHashMap Architecture
+## ConcurrentHashMap Architecture
 
 **Key features:**
 - **Segmented locking**: Only locks portions of the map, not the entire structure
@@ -102,7 +102,7 @@ If you used a regular `HashMap`, you would face:
 - **High concurrency**: Optimized for concurrent access
 
 
-## 🔄 Alternative Approaches
+## Alternative Approaches
 
 ### Using compute()
 ```java
@@ -119,12 +119,12 @@ loginCountMap.computeIfPresent("tushar", (key, value) -> value + 1);
 
 ### Using getOrDefault() with put() (NOT thread-safe)
 ```java
-// ❌ This is NOT thread-safe!
+// This is NOT thread-safe!
 int count = loginCountMap.getOrDefault("tushar", 0);
 loginCountMap.put("tushar", count + 1);
 ```
 
-## 📚 Real-World Use Cases
+## Real-World Use Cases
 
 - **User session tracking**: Counting active sessions per user
 - **API rate limiting**: Tracking requests per client
@@ -132,7 +132,7 @@ loginCountMap.put("tushar", count + 1);
 - **Real-time analytics**: Concurrent event counting
 - **Web server metrics**: Request counting across threads
 
-## ⚠️ Important Notes
+## Important Notes
 
 1. **Use atomic operations**: Always use methods like `merge()`, `compute()`, or `computeIfAbsent()` for updates
 2. **Avoid compound operations**: Don't combine `get()` and `put()` separately — they're not atomic together
