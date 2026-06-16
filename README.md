@@ -1,4 +1,4 @@
-# Java Collections Complete Guide
+## Java Collections Framework Complete Guide
 
 ## Table of Contents
 
